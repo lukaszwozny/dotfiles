@@ -22,4 +22,7 @@
     "python.linting.pylintArgs": [
         "--load-plugins=pylint_django"
     ],
+    "workbench.colorCustomizations": {
+        "editorGutter.background": "#272727",
+    }
 }
