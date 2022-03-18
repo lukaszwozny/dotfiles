@@ -1,10 +1,10 @@
-## VSCode settings path:
+## VSCode settings:
 
 ```bash
 ln -s $(pwd)/vscode/settings.json ~/.config/Code/User
 ```
 
-## VIMrc
+## .vimrc
 ```bash
 ln -s $(pwd)/.vimrc ~/
 ```
