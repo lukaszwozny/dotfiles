@@ -1,0 +1,21 @@
+#!/bin/bash
+
+wmctrl -s 1
+code ~/Projects/Python/plotka-backend
+code ~/Projects/Docker/ldek-docker/backend
+sleep 3
+
+wmctrl -s 2
+code ~/Projects/NodeJS/plotka-frontend
+code ~/Projects/SYNC/NodeJS/ldek/LekNaFrontend
+sleep 3
+brave localhost:7090
+sleep 2
+
+wmctrl -s 3
+code ~/Projects/Docker/plotka-docker
+code ~/Projects/Docker/ldek-docker
+sleep 1
+
+
+wmctrl -s 1

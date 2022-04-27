@@ -1,0 +1,27 @@
+#!/bin/bash
+
+wmctrl -s 1
+code ~/Projects/Flutter/lek_na_flutter
+sleep 3
+
+wmctrl -s 2
+gnome-terminal -- /bin/sh -c 'redis-server'
+sleep 2
+# code ~/Projects/Python/LekNaServer
+code ~/Projects/Python/leknaldek
+sleep 3
+
+wmctrl -s 3
+code ~/Projects/SYNC/NodeJS/ldek/LekNaFrontend
+sleep 3
+
+wmctrl -s 4
+code ~/Projects/Python/potrace_icon
+sleep 3
+
+wmctrl -s 5
+code ~/Projects/SYNC/Python/xlsx2lang
+sleep 3
+
+
+wmctrl -s 1
