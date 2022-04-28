@@ -1,0 +1,266 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-15T14:50:27+01:00
+
+====== vps ======
+Created wtorek 15 marca 2022
+
+**Twój adres IP serwera (miejsce docelowe): **54.37.137.137
+**IP połączenia (źródło): **85.221.149.194
+
+**Wyniki polecenia ping na Twoim serwerze:**
+[RESCUE] root@rescue-pro:~ $ ping -c 10 google.com
+PING google.com(fra15s10-in-x0e.1e100.net (2a00:1450:4001:811::200e)) 56 data bytes
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=1 ttl=111 time=19.3 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=2 ttl=111 time=18.6 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=3 ttl=111 time=18.7 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=4 ttl=111 time=18.6 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=5 ttl=111 time=18.7 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=6 ttl=111 time=18.7 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=7 ttl=111 time=18.6 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=8 ttl=111 time=18.7 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=9 ttl=111 time=18.6 ms
+64 bytes from fra16s51-in-x0e.1e100.net (2a00:1450:4001:811::200e): icmp_seq=10 ttl=111 time=18.7 ms
+
+--- google.com ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 26ms
+rtt min/avg/max/mdev = 18.598/18.712/19.305/0.225 ms
+
+
+**MTR ze źródłowego adresu IP na serwer:** 
+lukas@zorin:~$ mtr -o "J M X LSR NA B W V" -wbc 100 54.37.137.137
+Start: 2022-03-15T15:00:29+0100
+HOST: zorin                                    Jttr  Javg  Jmax  Loss%   Snt   Rcv   Last   Avg   Best   Wrst  StDev
+  1.|-- _gateway (192.168.18.1)                  554.  350.  1697  15.0%   100    85   74.3 283.4    1.3  2208.  445.3
+  2.|-- 100.89.112.1                             738.  389.  2093   5.0%   100    95   34.5 368.2    4.5  2161.  516.2
+  3.|-- 192.168.46.241                           469.  387.  2044   8.0%   100    92   74.9 355.6    3.5  2111.  511.3
+  4.|-- e123-60.icpnet.pl (46.238.123.60)        753.  410.  2057   6.0%   100    94   24.7 346.7    5.8  2063.  492.5
+  5.|-- e91-150.icpnet.pl (46.238.91.150)        586.  443.  2007   4.0%   100    96  141.8 381.9    6.0  2013.  530.2
+  6.|-- e91-141.icpnet.pl (46.238.91.141)        495.  444.  2949   2.0%   100    98   92.5 393.8    5.9  2962.  586.1
+  7.|-- e123-5.icpnet.pl (46.238.123.5)          585.  447.  2908   2.0%   100    98   42.4 384.1    6.0  2914.  578.8
+  8.|-- ovh.plix.pl (195.182.218.147)            567.  439.  2810   1.0%   100    99   10.3 376.7   10.0  2867.  571.2
+  9.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 10.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 11.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 12.|-- vl1067.waw-d1-a75.pl.eu (91.121.131.151) 1367  527.  2656  11.0%   100    89   12.3 407.9   10.6  2668.  550.1
+ 13.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 14.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 15.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 16.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 17.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 18.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 19.|-- ???                                       0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+ 20.|-- 137.ip-54-37-137.eu (54.37.137.137)      95.2  413.  2146  10.0%   100    90   10.8 312.8   10.3  2268.  457.0
+
+
+**MTR z twojego serwera do źródłowego adresu IP:** 
+[RESCUE] root@rescue-pro:~ $ mtr -o "J M X LSR NA B W V" -wbc 100 85.221.149.194
+Start: 2022-03-15T13:57:51+0000
+HOST: rescue-pro                                    Jttr  Javg  Jmax  Loss%   Snt   Rcv   Last   Avg   Best   Wrst  StDev
+  1.|-- 54.37.136.1                                    0.0   0.0   0.3   0.0%   100   100    0.2   0.1    0.1    0.5    0.0
+  2.|-- 192.168.143.254                                0.0   0.0   0.1   0.0%   100   100    0.2   0.2    0.1    0.3    0.0
+  3.|-- 10.13.26.254                                   0.0   0.0   0.1   0.0%   100   100    0.3   0.3    0.2    0.4    0.0
+  4.|-- 10.13.26.130                                   0.0   0.0   0.2   0.0%   100   100    0.3   0.3    0.2    0.5    0.0
+  5.|-- 10.13.48.106                                   0.0   0.0   0.1   0.0%   100   100    0.3   0.3    0.2    0.4    0.0
+  6.|-- 10.17.227.70                                   0.3   0.1   0.3   0.0%   100   100    0.5   0.6    0.5    0.8    0.1
+  7.|-- 10.73.24.66                                    0.0   0.0   0.1   0.0%   100   100    0.3   0.3    0.2    0.4    0.0
+  8.|-- 10.73.248.194                                  0.2   2.9  73.3   0.0%   100   100    1.1   5.9    0.6   74.2   15.2
+  9.|-- be101.waw-atm-sbb1-nc5.pl.eu (213.186.32.202)  0.1   0.1   0.4   0.0%   100   100    1.2   1.2    0.9    1.6    0.1
+ 10.|-- 10.200.0.77                                    0.3  12.0  229.   0.0%   100   100    1.3  11.6    1.1  231.3   35.0
+ 11.|-- icp.plix.pl (195.182.218.31)                   0.3   0.5  16.4   0.0%   100   100    4.7   5.0    4.6   21.1    1.7
+ 12.|-- e123-6.icpnet.pl (46.238.123.6)                0.1   1.4  31.4   0.0%   100   100    4.9   5.7    4.9   36.3    3.6
+ 13.|-- ???                                            0.0   0.0   0.0  100.0   100     0    0.0   0.0    0.0    0.0    0.0
+
+
+**Aby przetestować przepustowość: **
+[RESCUE] root@rescue-pro:~ $ date && iperf -c iperf.ovh.net -P 5 -r
+Tue 15 Mar 14:03:03 UTC 2022
+--------------------
+Server listening on TCP port 5001
+TCP window size:  128 KByte (default)
+--------------------
+--------------------
+Client connecting to iperf.ovh.net, TCP port 5001
+TCP window size: 85.0 KByte (default)
+--------------------
+[  8] local 54.37.137.137 port 57312 connected with 188.165.12.136 port 5001
+[  4] local 54.37.137.137 port 57308 connected with 188.165.12.136 port 5001
+[  7] local 54.37.137.137 port 57310 connected with 188.165.12.136 port 5001
+[  9] local 54.37.137.137 port 57314 connected with 188.165.12.136 port 5001
+[ 10] local 54.37.137.137 port 57316 connected with 188.165.12.136 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-10.0 sec  28.9 MBytes  24.2 Mbits/sec
+[  7]  0.0-10.1 sec  32.8 MBytes  27.3 Mbits/sec
+[  9]  0.0-10.1 sec  16.6 MBytes  13.8 Mbits/sec
+[  8]  0.0-10.1 sec  20.1 MBytes  16.6 Mbits/sec
+[ 10]  0.0-10.3 sec  23.8 MBytes  19.4 Mbits/sec
+[SUM]  0.0-10.3 sec   122 MBytes  99.9 Mbits/sec
+[  6] local 54.37.137.137 port 5001 connected with 188.165.12.136 port 47753
+[  4] local 54.37.137.137 port 5001 connected with 188.165.12.136 port 34239
+[  9] local 54.37.137.137 port 5001 connected with 188.165.12.136 port 45541
+[  8] local 54.37.137.137 port 5001 connected with 188.165.12.136 port 53727
+[  7] local 54.37.137.137 port 5001 connected with 188.165.12.136 port 39131
+[  9]  0.0-10.1 sec  23.0 MBytes  19.1 Mbits/sec
+[  4]  0.0-10.1 sec  30.5 MBytes  25.4 Mbits/sec
+[  8]  0.0-10.1 sec  23.1 MBytes  19.2 Mbits/sec
+[  7]  0.0-10.1 sec  21.2 MBytes  17.6 Mbits/sec
+[  6]  0.0-10.1 sec  19.7 MBytes  16.4 Mbits/sec
+
+
+**Aby przetestować sprzęt:** 
+[RESCUE] root@rescue-pro:/mnt/sdb1 $ fio --name=rand-write --ioengine=libaio --iodepth=32 --rw=randwrite --invalidate=1 --bsrange=4k:4k,4k:4k --size=512m --runtime=120 --time_based --do_verify=1 --direct=1 --group_reporting --numjobs=1
+rand-write: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=32
+fio-3.12
+Starting 1 process
+rand-write: Laying out IO file (1 file / 512MiB)
+Jobs: 1 (f=1): [w(1)][100.0%][w=3983KiB/s][w=995 IOPS][eta 00m:00s]
+rand-write: (groupid=0, jobs=1): err= 0: pid=1726: Tue Mar 15 14:09:58 2022
+  write: IOPS=996, BW=3988KiB/s (4083kB/s)(467MiB/120032msec); 0 zone resets
+	slat (usec): min=7, max=174692, avg=74.93, stdev=1419.76
+	clat (usec): min=258, max=216906, avg=32017.95, stdev=13282.85
+	 lat (usec): min=275, max=216933, avg=32093.90, stdev=13266.17
+	clat percentiles (usec):
+	 |  1.00th=[  1680],  5.00th=[  9241], 10.00th=[ 15926], 20.00th=[ 28181],
+	 | 30.00th=[ 31589], 40.00th=[ 31589], 50.00th=[ 31851], 60.00th=[ 32113],
+	 | 70.00th=[ 32375], 80.00th=[ 33162], 90.00th=[ 45351], 95.00th=[ 56361],
+	 | 99.00th=[ 74974], 99.50th=[ 86508], 99.90th=[116917], 99.95th=[145753],
+	 | 99.99th=[214959]
+   bw (  KiB/s): min= 2560, max= 4864, per=99.79%, avg=3978.82, stdev=205.88, samples=240
+   iops        : min=  640, max= 1216, avg=994.68, stdev=51.49, samples=240
+  lat (usec)   : 500=0.03%, 750=0.07%, 1000=0.21%
+  lat (msec)   : 2=0.92%, 4=1.03%, 10=3.73%, 20=6.75%, 50=79.60%
+  lat (msec)   : 100=7.39%, 250=0.27%
+  cpu          : usr=1.57%, sys=6.05%, ctx=116032, majf=0, minf=11
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+	 submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+	 complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+	 issued rwts: total=0,119659,0,0 short=0,0,0,0 dropped=0,0,0,0
+	 latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+  WRITE: bw=3988KiB/s (4083kB/s), 3988KiB/s-3988KiB/s (4083kB/s-4083kB/s), io=467MiB (490MB), run=120032-120032msec
+
+Disk stats (read/write):
+  sdb: ios=0/119722, merge=0/6488, ticks=0/3783018, in_queue=3762076, util=99.29%
+
+**Aby przetestować odpowiedź dysku: **
+[RESCUE] root@rescue-pro:/mnt/sdb1 $ ioping -c 100 /mnt/sdb1
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=1 time=4.80 ms (warmup)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=2 time=45.7 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=3 time=41.3 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=4 time=80.5 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=5 time=3.84 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=6 time=12.6 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=7 time=455.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=8 time=689.4 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=9 time=23.7 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=10 time=32.3 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=11 time=4.33 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=12 time=1.25 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=13 time=2.01 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=14 time=394.5 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=15 time=1.69 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=16 time=8.65 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=17 time=941.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=18 time=412.4 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=19 time=21.2 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=20 time=14.4 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=21 time=21.0 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=22 time=8.96 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=23 time=8.49 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=24 time=466.8 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=25 time=28.9 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=26 time=330.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=27 time=453.2 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=28 time=10.7 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=29 time=9.92 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=30 time=29.4 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=31 time=456.0 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=32 time=405.2 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=33 time=786.4 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=34 time=12.8 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=35 time=10.2 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=36 time=415.0 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=37 time=6.74 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=38 time=425.2 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=39 time=462.9 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=40 time=370.6 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=41 time=414.0 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=42 time=380.8 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=43 time=415.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=44 time=11.1 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=45 time=419.3 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=46 time=329.2 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=47 time=1.47 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=48 time=7.00 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=49 time=16.5 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=50 time=513.0 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=51 time=9.80 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=52 time=2.25 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=53 time=454.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=54 time=8.59 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=55 time=26.3 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=56 time=432.7 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=57 time=4.88 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=58 time=7.44 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=59 time=391.3 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=60 time=3.38 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=61 time=422.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=62 time=453.2 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=63 time=4.68 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=64 time=3.92 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=65 time=7.93 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=66 time=371.6 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=67 time=19.9 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=68 time=19.0 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=69 time=424.5 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=70 time=377.9 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=71 time=9.22 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=72 time=1.58 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=73 time=458.2 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=74 time=35.9 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=75 time=8.16 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=76 time=458.3 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=77 time=530.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=78 time=471.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=79 time=535.9 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=80 time=442.5 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=81 time=402.4 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=82 time=522.5 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=83 time=419.6 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=84 time=483.8 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=85 time=21.0 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=86 time=474.4 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=87 time=464.7 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=88 time=6.21 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=89 time=4.94 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=90 time=529.6 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=91 time=487.1 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=92 time=459.0 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=93 time=9.79 ms
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=94 time=1.30 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=95 time=402.4 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=96 time=456.8 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=97 time=637.9 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=98 time=482.5 us (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=99 time=1.14 ms (fast)
+4 KiB <<< /mnt/sdb1 (ext4 /dev/sdb1): request=100 time=416.8 us (fast)
+
+--- /mnt/sdb1 (ext4 /dev/sdb1) ioping statistics ---
+99 requests completed in 716.8 ms, 396 KiB read, 138 iops, 552.4 KiB/s
+generated 100 requests in 1.65 min, 400 KiB, 1 iops, 4.04 KiB/s
+min/avg/max/mdev = 329.2 us / 7.24 ms / 80.5 ms / 12.2 ms
+ioping -c 100 /mnt/sdb1
+
+
+**Aby przetestować CPU:** 
+[RESCUE] root@rescue-pro:/mnt/sdb1 $ top -b -n 1 -i
+top - 14:10:39 up 17 min,  1 user,  load average: 0.13, 0.13, 0.06
+Tasks: 104 total,   1 running, 103 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  6.2 sy,  0.0 ni, 93.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   1947.2 total,   1558.4 free,     82.3 used,    306.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   1717.6 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+
+ 

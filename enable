@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DST=$HOME
+FILE=".vimrc"
+DSTFILE="$DST/$FILE"
+
+if [ -f $DSTFILE ]; then
+        rm $DSTFILE
+fi
+
+TRG="$(pwd)/$FILE"
+
+#echo "ln -s $TRG $DST"
+ln -s $TRG $DST

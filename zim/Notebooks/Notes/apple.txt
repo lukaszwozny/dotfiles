@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-04-08T14:59:36+02:00
+
+zacho 7.1
+	ZasadaAzotowa
+	juliett30
+zacho 10.2
+	Kiniu98
+	blukaszyk

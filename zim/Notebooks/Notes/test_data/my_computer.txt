@@ -1,0 +1,68 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-15T14:11:49+01:00
+
+====== my computer ======
+Created wtorek 15 marca 2022
+
+lukas@zorin:~$ fio --name=rand-write --ioengine=libaio --iodepth=32 --rw=randwrite --invalidate=1 --bsrange=4k:4k,4k:4k --size=512m --runtime=120 --time_based --do_verify=1 --direct=1 --group_reporting --numjobs=12
+rand-write: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=32
+...
+fio-3.16
+Starting 12 processes
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+rand-write: Laying out IO file (1 file / 512MiB)
+Jobs: 12 (f=12): [w(12)][100.0%][w=988KiB/s][w=247 IOPS][eta 00m:00s]  
+rand-write: (groupid=0, jobs=12): err= 0: pid=33160: Tue Mar 15 14:11:00 2022
+  write: IOPS=14.3k, BW=55.9MiB/s (58.7MB/s)(6731MiB/120313msec); 0 zone resets
+	slat (usec): min=2, max=1421.2k, avg=829.75, stdev=7560.14
+	clat (usec): min=274, max=4263.7k, avg=25968.03, stdev=87787.73
+	 lat (usec): min=280, max=4329.2k, avg=26798.26, stdev=89901.23
+	clat percentiles (msec):
+	 |  1.00th=[    6],  5.00th=[    9], 10.00th=[   11], 20.00th=[   13],
+	 | 30.00th=[   15], 40.00th=[   17], 50.00th=[   19], 60.00th=[   21],
+	 | 70.00th=[   24], 80.00th=[   27], 90.00th=[   32], 95.00th=[   37],
+	 | 99.00th=[   64], 99.50th=[  435], 99.90th=[ 1502], 99.95th=[ 1821],
+	 | 99.99th=[ 2970]
+   bw (  KiB/s): min=  136, max=129622, per=100.00%, avg=58351.99, stdev=2567.52, samples=2833
+   iops        : min=   34, max=32404, avg=14587.68, stdev=641.88, samples=2833
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.04%, 4=0.32%, 10=9.00%, 20=46.49%, 50=42.56%
+  lat (msec)   : 100=0.86%, 250=0.10%, 500=0.17%, 750=0.11%, 1000=0.14%
+  lat (msec)   : 2000=0.18%, >=2000=0.03%
+  cpu          : usr=0.88%, sys=3.83%, ctx=576953, majf=0, minf=149
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+	 submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+	 complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+	 issued rwts: total=0,1723129,0,0 short=0,0,0,0 dropped=0,0,0,0
+	 latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+  WRITE: bw=55.9MiB/s (58.7MB/s), 55.9MiB/s-55.9MiB/s (58.7MB/s-58.7MB/s), io=6731MiB (7058MB), run=120313-120313msec
+
+Disk stats (read/write):
+  sda: ios=11/1724352, merge=0/145127, ticks=105/7212072, in_queue=7213792, util=99.37%
+
+
+
+lukas@zorin:~$ top -b -n 1 -i
+top - 14:12:21 up 53 min,  1 user,  load average: 3,78, 4,31, 2,22
+Tasks: 709 total,   1 running, 708 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0,9 us,  0,4 sy,  0,0 ni, 98,7 id,  0,0 wa,  0,0 hi,  0,0 si,  0,0 st
+MiB Mem :  32005,3 total,  21716,9 free,   4036,5 used,   6251,9 buff/cache
+MiB Swap:   2048,0 total,   2048,0 free,      0,0 used.  26806,7 avail Mem 
+
+	PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  34166 lukas     20   0   14928   4664   3404 R  11,8   0,0   0:00.03 top
+  20551 lukas     20   0  618016 161236  80004 S   5,9   0,5   1:14.98 caprine
+  20581 lukas     20   0 4772328 272188 163648 S   5,9   0,8   3:19.55 caprine
+  24998 lukas     20   0  484644  56448  42960 S   5,9   0,2   0:08.15 gnome-t+

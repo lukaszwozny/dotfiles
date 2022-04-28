@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-04T15:57:29+01:00
+
+====== Killing port ======
+Created piątek 04 marca 2022
+
+fuser 8080/tcp
+fuser -k 8080/tcp

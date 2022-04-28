@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-25T22:49:34+01:00
+
+====== auth info leknaldek.pl ======
+Created piątek 25 marca 2022
+
+Kod AUTH/INFO : hPBC{!L1FM=2+#~Qt+MF

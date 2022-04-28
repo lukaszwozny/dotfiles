@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-04T16:00:46+01:00
+
+====== docker ======
+Created piątek 04 marca 2022
+

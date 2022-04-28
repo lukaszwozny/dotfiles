@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DST="$HOME/.config/Code/User"
+FILE="settings.json"
+DSTFILE="$DST/$FILE"
+
+if [ -f $DSTFILE ]; then
+        rm $DSTFILE
+fi
+
+TRG="$(pwd)/$FILE"
+
+#echo "ln -s $TRG $DST"
+ln -s $TRG $DST

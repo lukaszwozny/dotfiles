@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-04-26T04:20:58+02:00
+
+====== ultrawide ======
+Created wtorek 26 kwietnia 2022
+
+[[./configure]]
+make
+sudo make install
+
+**lukas@zorin:~/Downloads/umc-0.2$** umc 2560 1080 54 --rbt
+
+	# 2560x1080x53.92 @ 59.743kHz
+	Modeline "2560x1080x53.92"  162.500000  2560 2608 2640 2720  1080 1083 1087 1108  +HSync -VSync
+**lukas@zorin:~/Downloads/umc-0.2$** xrandr --newmode "2560x1080x53.92"  162.500000  2560 2608 2640 2720  1080 1083 1087 1108  +HSync -VSync
+**lukas@zorin:~/Downloads/umc-0.2$** xrandr --addmode HDMI-0 2560x1080x53.92
+
+**/etc/X11/xorg.conf**
+Section "Monitor"
+	Identifier      "HDMI-0"
+	Modeline        "2560x1080x53.92"  162.500000  2560 2608 2640 2720  1080 1083 1087 1108  +HSync -VSync
+	Option          "PreferredMode" "2560x1080x53.92"
+EndSection
+

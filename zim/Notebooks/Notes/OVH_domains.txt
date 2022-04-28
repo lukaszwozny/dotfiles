@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-04T17:03:04+01:00
+
+====== OVH domains ======
+Created piątek 04 marca 2022
+
+leknaldek.tk 
+	port: 8010
+
+leknalek.tk 
+	port: 8020
+

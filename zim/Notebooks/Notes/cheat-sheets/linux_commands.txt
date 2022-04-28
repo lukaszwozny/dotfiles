@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-25T18:02:40+01:00
+
+====== linux commands ======
+Created piątek 25 marca 2022
+
+Killing proccess at port:
+fuser 8000/tcp
+fuser -k 8000/tcp

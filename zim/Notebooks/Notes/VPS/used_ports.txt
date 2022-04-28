@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-16T19:20:10+01:00
+
+====== used ports ======
+Created środa 16 marca 2022
+
+7010 - leknaldek.tk
+7020 - leknalek.tk
+7090 - plotkanieruchomosci.tk
+7092 - wojsko_quiz
+
+# HTTPS
+8010 - leknaldek.pl
+8020 - leknalek.pl
+8090 - plotkanieruchomosci.pl
+8091 - singularityproject.pl
+

@@ -12,5 +12,3 @@ export PATH="$PATH:$ANDROID_SDK/platform-tools"
 export PATH="$PATH:$ANDROID_SDK/emulator"
 export PATH="$PATH:$ANDROID_SDK/tools"
 
-wmctrl -s 1
-google-chrome

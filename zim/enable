@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DST=$HOME
+FILE="Notebooks"
+DSTFILE="$DST/$FILE"
+
+if [ -d $DSTFILE ]; then
+        rm -rf $DSTFILE
+fi
+
+TRG="$(pwd)/$FILE"
+
+#echo "ln -s $TRG $DST"
+ln -s $TRG $DST

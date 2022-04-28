@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-28T13:23:39+02:00
+
+====== Permissions ======
+Created poniedziałek 28 marca 2022
+
+add_coupon - Może dodawać kupony
+
+view_answer - Może odpowiadać na pytania (brak demo)
+change_exam - -||-  ????
+
+change_debatable - Widzi przycisk oznacz jako dziwne.

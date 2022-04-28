@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-03T19:53:15+01:00
+
+====== ssh ======
+Created czwartek 03 marca 2022
+
+eval "$(ssh-agent -s)"
