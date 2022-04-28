@@ -1,23 +1,23 @@
 #!/bin/bash
 
-wmctrl -s 1
-code ~/Projects/Docker/ldek-docker/backend
-sleep 3
-
 wmctrl -s 2
-code ~/Projects/SYNC/NodeJS/ldek/LekNaFrontend
+code ~/Projects/Python/LekNaServer
 sleep 3
 
 wmctrl -s 3
-code ~/Projects/Docker/ldek-docker
+code ~/Projects/NodeJS/LekNaFrontend
 sleep 3
 
 wmctrl -s 4
-code ~/Projects/Python/potrace_icon
+code ~/Projects/Docker/LekNaDocker
 sleep 3
 
 wmctrl -s 5
-code ~/Projects/SYNC/Python/xlsx2lang
+code ~/Projects/Python/PngToSvg
+sleep 3
+
+wmctrl -s 6
+code ~/Projects/Python/xlsx2lang
 sleep 3
 
 
