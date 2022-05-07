@@ -1,0 +1,68 @@
+ upstream dj {
+	server 127.0.0.1:8000;
+}
+upstream vue {
+	server 127.0.0.1:3000;
+}
+
+server {
+	listen 80;
+
+	server_name plotka;
+
+	client_max_body_size 10M;
+
+	location /admin {
+	    proxy_pass http://dj;
+	}
+	location /graphql {
+	    proxy_pass http://dj;
+	}
+	location /static {
+	    proxy_pass http://dj;
+	}
+	location /media {
+	    proxy_pass http://dj;
+	}
+	location /summernote {
+	    proxy_pass http://dj;
+	}
+
+	location /ws {
+	    proxy_pass http://dj;
+
+	    proxy_http_version 1.1;
+	    proxy_set_header Upgrade $http_upgrade;
+	    proxy_set_header Connection "upgrade";
+
+	    proxy_redirect off;
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+	    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_set_header X-Forwarded-Host $server_name;
+	}
+
+	location / {
+	    proxy_pass http://vue;
+	}
+}
+
+
+# Virtual Host configuration for example.com
+#
+# You can move that to a different file under sites-available/ and symlink that
+# to sites-enabled/ to enable it.
+#
+#server {
+#	listen 80;
+#	listen [::]:80;
+#
+#	server_name example.com;
+#
+#	root /var/www/example.com;
+#	index index.html;
+#
+#	location / {
+#		try_files $uri $uri/ =404;
+#	}
+#}

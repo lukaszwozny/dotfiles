@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /home/lukas/Projects/Python/lgtv
+python start.py

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+SCREEN_N=5
+echo $SCREEN_N
+
+echo $((++SCREEN_N))
+echo $((++SCREEN_N))

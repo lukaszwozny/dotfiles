@@ -7,6 +7,10 @@ code ~/Projects/Python/LekNaServer
 sleep 3
 
 wmctrl -s $((S_N++))
+code ~/Projects/Flutter/lek_na_flutter
+sleep 3
+
+wmctrl -s $((S_N++))
 code ~/Projects/NodeJS/LekNaFrontend
 sleep 3
 
@@ -21,5 +25,6 @@ sleep 3
 wmctrl -s $((S_N++))
 code ~/Projects/Python/xlsx2lang
 sleep 3
+
 
 wmctrl -s 1
