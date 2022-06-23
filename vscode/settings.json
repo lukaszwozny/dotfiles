@@ -1,4 +1,5 @@
 {
+    "editor.hover.enabled": true,
     "workbench.iconTheme": "material-icon-theme",
     "keyboard.dispatch": "keyCode",
     "vim.vimrc.enable": true,
