@@ -1,0 +1,17 @@
+#!/bin/bash
+S_N=2
+
+wmctrl -s $((S_N++))
+code ~/Projects/Python/tempproject-backend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/NodeJS/tempproject-frontend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/Docker/tempproject-docker
+sleep 1
+
+
+wmctrl -s 1
