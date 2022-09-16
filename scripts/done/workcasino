@@ -2,17 +2,17 @@
 S_N=2
 
 wmctrl -s $((S_N++))
-code ~/Projects/Python/casino-backend
+code ~/Projects/Python/casinos-backend
 code ~/Projects/Python/plotka-backend
 sleep 3
 
 wmctrl -s $((S_N++))
-code ~/Projects/NodeJS/casino-frontend
+code ~/Projects/NodeJS/casinos-frontend
 code ~/Projects/NodeJS/plotka-frontend
 sleep 3
 
 wmctrl -s $((S_N++))
-code ~/Projects/Docker/casino-docker
+code ~/Projects/Docker/casinos-docker
 code ~/Projects/Docker/plotka-docker
 sleep 1
 

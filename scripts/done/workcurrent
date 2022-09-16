@@ -1,0 +1,17 @@
+#!/bin/bash
+
+S_N=2
+
+wmctrl -s $((S_N++))
+code ~/Projects/Python/LekNaServer_Current
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/NodeJS/LekNaFrontend_Current
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/Docker/LekNaDocker_Current
+sleep 3
+
+wmctrl -s 1

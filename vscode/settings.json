@@ -6,7 +6,7 @@
     "editor.formatOnSave": true,
     "window.restoreWindows": "none",
     "html.format.wrapAttributes": "force-expand-multiline",
-    "prettier.proseWrap": "preserve",
+    "prettier.proseWrap": "always",
     "vetur.format.defaultFormatter.js": "prettier-eslint",
     "vetur.format.defaultFormatter.html": "js-beautify-html",
     "[jsonc]": {
@@ -39,5 +39,8 @@
     "python.formatting.provider": "black",
     "workbench.colorCustomizations": {
         "editorGutter.background": "#272727"
-    }
+    },
+    "powermode.enabled": true,
+    "powermode.presets": "flames",
+    "powermode.shake.enabled": false
 }

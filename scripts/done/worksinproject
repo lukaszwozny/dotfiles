@@ -3,17 +3,14 @@ S_N=2
 
 wmctrl -s $((S_N++))
 code ~/Projects/Python/sinproject-backend
-code ~/Projects/Python/plotka-backend
 sleep 3
 
 wmctrl -s $((S_N++))
 code ~/Projects/NodeJS/sinproject-frontend
-code ~/Projects/NodeJS/plotka-frontend
 sleep 3
 
 wmctrl -s $((S_N++))
 code ~/Projects/Docker/sinproject-docker
-code ~/Projects/Docker/plotka-docker
 sleep 1
 
 

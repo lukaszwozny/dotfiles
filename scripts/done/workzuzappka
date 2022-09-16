@@ -1,0 +1,18 @@
+#!/bin/bash
+
+S_N=2
+
+wmctrl -s $((S_N++))
+code ~/Projects/Python/zuzappka-backend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/Flutter/zuzappka-flutter
+sleep 3
+
+wmctrl -s 2
+code ~/Projects/Docker/zuzappka-docker
+sleep 1
+
+
+wmctrl -s 1
