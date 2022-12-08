@@ -1,0 +1,17 @@
+#!/bin/bash
+S_N=2
+
+wmctrl -s $((S_N++))
+code ~/Projects/Python/sinproject-backend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/NodeJS/sinproject-frontend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/Docker/sinproject-docker
+sleep 1
+
+
+wmctrl -s 1

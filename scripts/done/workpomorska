@@ -1,0 +1,17 @@
+#!/bin/bash
+S_N=2
+
+wmctrl -s $((S_N++))
+code ~/Projects/Python/pomorskanieruchomosci-backend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/NodeJS/pomorskanieruchomosci-frontend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/Docker/pomorskanieruchomosci-docker
+sleep 1
+
+
+wmctrl -s 1
