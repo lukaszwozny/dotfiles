@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-07-20T04:47:19+02:00
+
+====== omend ======
+Created Wednesday 20 July 2022
+
+# Kiedy chcesz coś poprawić w poprzednim commicie
+1. Robisz zmiany
+2. git commit --omend
+*3. (jeżeli juz wrzuciłem na serwer) git push --force

@@ -8,11 +8,25 @@ Created środa 16 marca 2022
 7010 - leknaldek.tk
 7020 - leknalek.tk
 7090 - plotkanieruchomosci.tk
+7089 - testowa.ga // pomorska
+7091 - sinproject.tk
 7092 - wojsko_quiz
+7094/7095 - casinovoltage.tk
+7055 - prox.com
+7096 - zuzappka.tk 
+7069 - testowa.ga
 
 # HTTPS
 8010 - leknaldek.pl
 8020 - leknalek.pl
+8041 - proxcasino.com
+8050 - casinovoltage.tk
+8051 - prox.com
+8060 - costamnawegorce.pl
+8089 - pomorskanieruchomosci.pl
 8090 - plotkanieruchomosci.pl
-8091 - singularityproject.pl
+8091 - sinproject.pl
+8093 - plotkanieruchomosci.tk
+
+8101 - salonnawinklu.pl ???
 

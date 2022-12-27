@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-05-09T00:23:10+02:00
+
+====== current branch is master ======
+Created Monday 09 May 2022
+
+git checkout new-master
+git branch -m master old-master
+git branch -m new-master master
+# And don't do this part.  Just don't.  But if you want to...
+# git branch -d --force old-master

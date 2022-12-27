@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-08-10T11:27:24+02:00
+
+====== słówka ======
+Created Wednesday 10 August 2022
+
+in spite - pomimo
+
+
+
+
+ikony mi wysle
+logo poprawić
+
+ustawić favicon
+
+dodać opcję ustawienia koloru w main site  config
+usunac Konfiguracja strony
+usunac pb 
+"szarfa" sprzedane

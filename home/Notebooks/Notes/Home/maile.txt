@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-05-05T12:12:23+02:00
+
+====== maile ======
+Created Thursday 05 May 2022
+
+{id: 18, text: <p>Moje tresciwe opracowanie</p>, createdBy: {pk: 92, username: fortest, email: null, hasFullAccess: null, hasNoPresentationAccess: null, isSuperuser: null}, fixedFlag: 0, prevFixedFlag: 0, sourceInfo: null, books: ({id: null, info: 123, cemBook: {id: 18, title: Ustawa o prawach pacjenta i Rzeczniku Praw Pacjenta, author: Bosek L., authors: null}})}

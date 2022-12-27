@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-05-13T20:11:21+02:00
+
+====== nginx ======
+Created Friday 13 May 2022
+
+Set permission for Nfinx on Fedora
+chcon -R -t httpd_sys_content_t /srv/www/yoursite

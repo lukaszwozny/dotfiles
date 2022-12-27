@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-11-17T12:20:24+01:00
+
+====== winapi-notatnik ======
+Created Thursday 17 November 2022
+
+1. winmain
+
+2. pętla

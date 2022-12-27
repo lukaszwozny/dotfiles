@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-10-02T04:03:34+02:00
+
+====== save all product ======
+Created Sunday 02 October 2022
+
+from product.models import [[ProductImage]]
+all = ProductImage.objects.all()
+
+ for i in all:
+...     path = str(i.img)
+...     pos = path.rfind('.')
+...     new_path = path[:pos] + '.jpg'
+...     i.img = new_path

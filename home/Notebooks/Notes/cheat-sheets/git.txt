@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-05-09T00:22:49+02:00
+
+====== git ======
+Created Monday 09 May 2022
+

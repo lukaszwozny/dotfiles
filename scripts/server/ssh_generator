@@ -1,0 +1,32 @@
+ls
+
+echo "$1 BACKEND"
+ssh-keygen -f ~/.ssh/$1.backend.id_rsa -N ""
+
+echo ""
+echo "$1 DOCKER"
+ssh-keygen -f ~/.ssh/$1.docker.id_rsa -N ""
+
+echo "
+
+Host github-$1-backend
+  HostName github.com
+  User git
+  IdentityFile /home/lukas/.ssh/$1.backend.id_rsa
+  IdentitiesOnly yes
+Host github-$1-docker
+  HostName github.com
+  User git
+  IdentityFile /home/lukas/.ssh/$1.docker.id_rsa
+  IdentitiesOnly yes
+"
+
+echo Backend public key:
+cat /home/lukas/.ssh/$1.backend.id_rsa.pub
+echo Docker public key:
+cat /home/lukas/.ssh/$1.docker.id_rsa.pub
+
+echo ""
+
+echo "git clone git@github-$1-docker:lukaszwozny/$1-docker.git $1"
+echo "git clone git@github-$1-backend:lukaszwozny/$1-backend.git backend"

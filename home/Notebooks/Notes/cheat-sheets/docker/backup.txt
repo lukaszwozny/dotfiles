@@ -8,9 +8,24 @@ Created piątek 04 marca 2022
 Make backup to sql
 docker exec -t b0c pg_dumpall -c -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
 
+ldek_pl
+docker exec -t 1bb601f65 pg_dumpall -c -U postgres > dump_ldek_pl_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+
+lek_pl
+docker exec -t 70a1485cb394 pg_dumpall -c -U postgres > dump_lek_pl_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+
 Make backup to gz
 docker exec -t your-db-container  pg_dumpall -c -U postgres | gzip > ./tmp/dump_$(date +"%Y-%m-%d_%H_%M_%S").gz
 docker exec -t your-db-container  pg_dumpall -c -U postgres | gzip > .dump_$(date +"%Y-%m-%d_%H_%M_%S").gz
 
+# clear database
+docker exec -i CONTAINERID dropdb -U postgres postgres
+docker exec -i CONTAINERID createdb -U postgres postgres
+docker exec -i CONTAINERID "dropdb -U postgres postgres && createdb -U postgres postgres"
+
+
 Restore your data
 cat your_dump.sql | docker exec -i your-db-container psql -U postgres
+
+Python [[LekNaBackup]] cmd
+ python3 mega_upload.py settings/plotka.json >> ~/logs/plotka-backup.log 2>&1

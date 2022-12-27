@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-09-14T21:46:48+02:00
+
+====== NAS ======
+Created Wednesday 14 September 2022
+
+admin
+hasła:
+123ln(Nas)==!Free<>//
+123ln(NAS)==!Free<>//
+123ln(Admin)==!Free<>//
+123ln(NASa)==!Free<>//
+123ln(Root)==!Free<>//
+123ln(ROOT)==!Free<>//
+123ln(NASA)==!Free<>//
+123ln(Synology)==!Free<>//
+123ln(Syn)==!Free<>//
+123ln(ADMIN)==!Free<>//
+
+123ln(root)==!Free<>//
+
+
+''192''.168.1.98

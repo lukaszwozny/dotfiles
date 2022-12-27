@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-06-17T18:59:39+02:00
+
+====== translations ======
+Created Friday 17 June 2022
+
+zmienione
+LekNaLDEK wykorzystuje pliki cookie i inne dane do dostarczania, utrzymywania i ulepszania swoich usług.
+
+Aplikacja mobilna Lek na LDEK jest już dostępna do pobrania!

@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-05-06T02:56:09+02:00
+
+====== bash commands ======
+Created Friday 06 May 2022
+
+— switch java
+sudo alternatives --config java
+
+— android emulator slow performance
+echo "QuickbootFileBacked = off" >> ~/.android/advancedFeatures.ini
+

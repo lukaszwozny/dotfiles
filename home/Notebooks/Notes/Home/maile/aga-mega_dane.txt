@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-07-10T13:39:48+02:00
+
+====== aga-mega dane ======
+Created Sunday 10 July 2022
+
+Elo elo 3-2-0
+
+Poniżej podaję dane do logowania na stronie https://mega.io/
+Email: zabulek@gmail.com
+Hasło: yr5rLysKiLV4Br
+I recovery key, gdybyś zapomniała hasła które jest linijkę wyżej: bNpAh70wqe240VghT7J2Tw
+
+W wolnej chwili możesz sobie wejść. Zobaczysz foldery "db" oraz "media" zawierające odpowiednio backupy bazy danych oraz mediów (w twoim przypadku są to zdjęcia). Backupy są robione codziennie o 4:00. Backup "mediów" wykonuje się tylko jeśli pojawiły się jakieś zmiany. Gdy zacznie brakować miejsca (ustawiłem, że do 80% zapełnia) wtedy usuwane są automatycznie najstarsze backupy, więc spieszny się je kochać, tak szybko odchodzą. 
+
+Co do przywrócenia tych backupów no to trzeba użyć lini polecań na serwerze. Opiszę co i jak w pliku z projektem który wrzucę ci na githuba, w razie jakbym umar to żebyś mogła dać jakiemuś innemu komputerowemu zjebowi, żeby ci to postawił.
+
+Bez poważania, ale za to z pozdrowieniami,
+Łukasz Woźny.

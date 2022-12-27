@@ -1,0 +1,17 @@
+#!/bin/bash
+S_N=2
+
+wmctrl -s $((S_N++))
+code ~/Projects/Python/stomatologianamurawie-backend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/NodeJS/stomatologianamurawie-frontend
+sleep 3
+
+wmctrl -s $((S_N++))
+code ~/Projects/Docker/stomatologianamurawie-docker
+sleep 1
+
+
+wmctrl -s 1

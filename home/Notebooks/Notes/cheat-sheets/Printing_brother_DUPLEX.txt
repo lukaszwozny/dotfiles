@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-10-18T15:00:34+02:00
+
+====== Printing brother DUPLEX ======
+Created Tuesday 18 October 2022
+
+1. parzyste (even)  revers - on
+2. nie parzyste (odd)  revers - off

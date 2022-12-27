@@ -11,3 +11,9 @@ leknaldek.tk
 leknalek.tk 
 	port: 8020
 
+plotkanieruchomosci.pl
+	port: 7090
+
+casinovoltage.tk
+	port: 7096
+
