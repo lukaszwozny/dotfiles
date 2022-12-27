@@ -1,9 +1,9 @@
 echo "$1 BACKEND"
-ssh-keygen -f ~/.ssh/$1.backend.id_rsa -N ""
+ssh-keygen -t rsa -f ~/.ssh/$1.backend.id_rsa -N ""
 
 echo ""
 echo "$1 DOCKER"
-ssh-keygen -f ~/.ssh/$1.docker.id_rsa -N ""
+ssh-keygen -t rsa -f ~/.ssh/$1.docker.id_rsa -N ""
 
 echo "
 
