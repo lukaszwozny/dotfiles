@@ -10,19 +10,19 @@ echo "
 Host github-$1-backend
   HostName github.com
   User git
-  IdentityFile /home/lukas/.ssh/$1.backend.id_rsa
+  IdentityFile /home/$USER/.ssh/$1.backend.id_rsa
   IdentitiesOnly yes
 Host github-$1-docker
   HostName github.com
   User git
-  IdentityFile /home/lukas/.ssh/$1.docker.id_rsa
+  IdentityFile /home/$USER/.ssh/$1.docker.id_rsa
   IdentitiesOnly yes
 "
 
 echo Backend public key:
-cat /home/lukas/.ssh/$1.backend.id_rsa.pub
+cat /home/$USER/.ssh/$1.backend.id_rsa.pub
 echo Docker public key:
-cat /home/lukas/.ssh/$1.docker.id_rsa.pub
+cat /home/$USER/.ssh/$1.docker.id_rsa.pub
 
 echo ""
 
