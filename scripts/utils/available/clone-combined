@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ "$1" = "" ] || [ "$2" = "" ]
+then
+	echo "Usage: $0 <colned_project_dir> <new_project_name>"
+	exit
+fi
+
+SOURCE="${1%/}"
+TARGET="${2%/}"
+
+echo $SOURCE $TARGET
+
+cp -R $SOURCE $TARGET
+
+TYPES=""
+TYPES+="backend "
+TYPES+="frontend "
+TYPES+="docker "
+
+for TYPE in $TYPES
+do
+	mv "$TARGET/$SOURCE-$TYPE" "$TARGET/$TARGET-$TYPE"
+	rm -rf "$TARGET/$SOURCE-$TYPE" "$TARGET/$TARGET-$TYPE/.git"
+done
+
+# Recreate venv
+rm -rf "$TARGET/$TARGET-backend/venv"
+virtualenv -q "$TARGET/$TARGET-backend/venv"
