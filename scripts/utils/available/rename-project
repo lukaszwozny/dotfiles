@@ -1,61 +1,173 @@
-#!/usr/bin/env python
-
+#!/usr/bin/env python3
 import json
 import re
+import os
 import logging
+import glob
+import shutil
+import argparse
 from enum import Enum
+
+
 
 logging.basicConfig(level=logging.DEBUG)
 
 
 class Changes(Enum):
     DOMAIN = "domain"
+    PORT = "port"
+    SQL_PORT = "sqlPort"
+    PROJECT_NAME = "projectName"
 
 
-data = {
+g_data = {
     Changes.DOMAIN: "sinproject.pl",
+    Changes.PORT: "8099",
 }
 
 
-filename = "replace-table.json"
+filename = "make-config.json"
+
+RANDOM_WORD = "XYRWDFZU"
 
 
 class App:
-    def __init__(self) -> None:
-        self._read_replace_table()
-
-    def _read_replace_table(self):
-        with open(filename) as f:
-            self.replace_table = json.load(f)
+    def __init__(self, composed) -> None:
+        self.composed = composed
 
     def start(self):
-        for d in self.replace_table:
-            logging.debug(f'FILE: {d["file"]}')
-            with open(d["file"]) as f:
+        if self.composed:
+            self._in_all_dirs()
+        else:
+            self._rename_project()
+
+    def _in_all_dirs(self):
+        # types = ["backend", "frontend", "docker"]
+        for dir in os.listdir("."):
+            if not os.path.isdir(dir):
+                continue
+            logging.info(f"DIR: {dir}")
+
+            os.chdir(dir)
+
+            self._rename_project()
+
+            os.chdir("..")
+
+    def _read_replace_table(self):
+        if not os.path.isfile(filename):
+            return False
+
+        with open(filename) as f:
+            self.make_config = json.load(f)
+
+        return True
+
+    def _rename_project(self):
+        found = self._read_replace_table()
+        if not found:
+            return
+        # self.changes()
+        for config in self.make_config:
+            if "from" in config and "to" in config:
+                self._copy(config=config)
+            elif "file" in config:
+                self._change(config=config)
+
+    def _copy(self, config):
+        logging.debug("Coping...")
+        from_file = config["from"]
+        if "fromKey" in config:
+            key = Changes(config["fromKey"])
+            from_file = from_file.format(g_data[key])
+        logging.debug(f"  from: {from_file}")
+
+        to_file = config["to"]
+        if "toKey" in config:
+            key = Changes(config["toKey"])
+            to_file = to_file.format(g_data[key])
+        logging.debug(f"  to: {to_file}")
+
+        shutil.copy(from_file, to_file)
+
+    def _change(self, config):
+        logging.debug(f'FILE: {config["file"]}')
+
+        files = glob.glob(config["file"])
+        for file in files:
+            with open(file) as f:
                 text = f.read()
 
-            pattern = d["pattern"]
-            regex = pattern.replace("{}", d["regex"])
+            change_i = 1
+            for change in config["changes"]:
+                logging.debug(f"  CHANGE {change_i}")
+                change_i += 1
+                # Regex
+                regex = change["regex"]
+                # print(regex)
 
-            word = data[Changes(d["key"])]
-            replace_with = pattern.format(word)
+                replace_key = change["replaceKey"]
+                replace_with = g_data[Changes(replace_key)]
 
-            text = re.sub(regex, replace_with, text)
+                logging.debug(f"  {regex}")
+
+                compiled = re.compile(regex)
+
+                groups = compiled.groups
+                if groups == 0:
+                    raise Exception("No match!")
+
+                result_pattern = change.get("resultPattern", None)
+                if result_pattern is None:
+                    if groups == 1:
+                        result_pattern = r"\1{}"
+                    else:
+                        result_pattern = r"\1{}\2"
+
+                text = compiled.sub(result_pattern.format(RANDOM_WORD), text)
+                text = text.replace(RANDOM_WORD, replace_with)
 
             # Save changes into file
-            # with open(d["file"], 'w') as f:
-            #     f.write(text)
-            # print(text)
+            with open(file, "w") as f:
+                f.write(text)
 
 
-if __name__ == "__main__":
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '-c',
+        '--composed',
+        help='Renaming all projects in current dir.',
+        action='store_true',
+    )
+    args = parser.parse_args()
+    print(args)
+
     domain = "test.happy.ovh"
     # domain_input = input(f"Domena ({domain}): ")
     # if domain_input != "":
     #     domain = domain_input
 
-    for key in Changes:
-        logging.info(f'{key.value.upper()}: {data[key]}')
+    # if os.path.isfile('make'):
+    #     logging.debug('Running \.make...')
+    #     os.system('./make --domain {domain}')
+    #     logging.debug('  DONE')
 
-    app = App()
+    # for key in Changes:
+    #     logging.info(f"{key.value.upper()}: {g_data[key]}")
+
+    port = g_data[Changes.PORT]
+    g_data[Changes.SQL_PORT] = f"5{port[1:]}"
+
+    abs_path = os.getcwd()
+    dir_name = abs_path.split("/")[-1]
+    g_data[Changes.PROJECT_NAME] = dir_name
+
+    app = App(
+        composed=args.composed,
+    )
     app.start()
+
+
+if __name__ == "__main__":
+    main()
