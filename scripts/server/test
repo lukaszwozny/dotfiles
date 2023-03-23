@@ -1,8 +1,0 @@
-echo "
-Host github-$1-backend
-  HostName github.com
-  User git
-  IdentityFile /home/lukas/.ssh/$1.backend.id_rsa
-  IdentitiesOnly yes
-
-"
