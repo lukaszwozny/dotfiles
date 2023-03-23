@@ -7,6 +7,7 @@ import glob
 import shutil
 import argparse
 from enum import Enum
+import secrets
 
 
 
@@ -16,12 +17,18 @@ logging.basicConfig(level=logging.DEBUG)
 class Changes(Enum):
     DOMAIN = "domain"
     PORT = "port"
-    SQL_PORT = "sqlPort"
-    PROJECT_NAME = "projectName"
+    SQL_PORT = "sql-port"
+    VUE_PORT = "vue-port"
+    DJANGO_PORT = "django-port"
+    PROJECT_NAME = "project-name"
+    PROJECT_NAME_CAPITALIZE = "project-name-capitalize"
+    DB_USER = "db-user"
+    DB_PASSWORD = "db-password"
+    DJANGO_SECRET = "django-secret"
 
 
 g_data = {
-    Changes.DOMAIN: "sinproject.pl",
+    Changes.DOMAIN: "abc.happy.ovh",
     Changes.PORT: "8099",
 }
 
@@ -68,7 +75,10 @@ class App:
         if not found:
             return
         # self.changes()
+
         for config in self.make_config:
+            if 'enabled' in config and not config['enabled']:
+                continue
             if "from" in config and "to" in config:
                 self._copy(config=config)
             elif "file" in config:
@@ -141,27 +151,31 @@ def main():
         action='store_true',
     )
     args = parser.parse_args()
-    print(args)
 
-    domain = "test.happy.ovh"
-    # domain_input = input(f"Domena ({domain}): ")
-    # if domain_input != "":
-    #     domain = domain_input
-
-    # if os.path.isfile('make'):
-    #     logging.debug('Running \.make...')
-    #     os.system('./make --domain {domain}')
-    #     logging.debug('  DONE')
-
-    # for key in Changes:
-    #     logging.info(f"{key.value.upper()}: {g_data[key]}")
-
-    port = g_data[Changes.PORT]
-    g_data[Changes.SQL_PORT] = f"5{port[1:]}"
+    value = input(f"Domain ({g_data[Changes.DOMAIN]}): ")
+    if value != "":
+        g_data[Changes.DOMAIN] = value
+    value = input(f"Port ({g_data[Changes.PORT]}): ")
+    if value != "":
+        g_data[Changes.PORT] = value
 
     abs_path = os.getcwd()
     dir_name = abs_path.split("/")[-1]
-    g_data[Changes.PROJECT_NAME] = dir_name
+    split = dir_name.split('-')
+    if len(split) > 1:
+        split = split[:-1]
+    g_data[Changes.PROJECT_NAME] = '-'.join(split)
+    g_data[Changes.PROJECT_NAME_CAPITALIZE] = g_data[Changes.PROJECT_NAME].replace('-', ' ').capitalize()
+
+    port = g_data[Changes.PORT]
+    g_data[Changes.VUE_PORT] = f"3{port[1:]}"
+    g_data[Changes.SQL_PORT] = f"5{port[1:]}"
+    g_data[Changes.DJANGO_PORT] = f"7{port[1:]}"
+    g_data[Changes.DJANGO_SECRET] = secrets.token_urlsafe(50)
+
+    # DB
+    g_data[Changes.DB_USER] = g_data[Changes.PROJECT_NAME]
+    g_data[Changes.DB_PASSWORD] = f'{g_data[Changes.PROJECT_NAME]}-pass'
 
     app = App(
         composed=args.composed,
