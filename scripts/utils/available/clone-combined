@@ -2,7 +2,7 @@
 
 if [ "$1" = "" ] || [ "$2" = "" ]
 then
-	echo "Usage: $0 <colned_project_dir> <new_project_name>"
+	echo "Usage: ${0##*/} <colned_project_dir> <new_project_name>"
 	exit
 fi
 
@@ -21,9 +21,31 @@ TYPES+="docker "
 for TYPE in $TYPES
 do
 	mv "$TARGET/$SOURCE-$TYPE" "$TARGET/$TARGET-$TYPE"
-	rm -rf "$TARGET/$SOURCE-$TYPE" "$TARGET/$TARGET-$TYPE/.git"
 done
 
 # Recreate venv
 rm -rf "$TARGET/$TARGET-backend/venv"
 virtualenv -q "$TARGET/$TARGET-backend/venv"
+virtualenv -q "$TARGET/$TARGET-backend/media"
+
+# Removes .git
+rm -rf "$TARGET/$SOURCE-backend" "$TARGET/$TARGET-backend/.git"
+rm -rf "$TARGET/$SOURCE-frontend" "$TARGET/$TARGET-frontend/.git"
+
+# In docker
+rm -rf "$TARGET/$TARGET-docker/backend"
+rm -rf "$TARGET/$TARGET-docker/volumes"
+rm -rf "$TARGET/$TARGET-docker/nuxt-output"
+mkdir "$TARGET/$TARGET-docker/nuxt-output"
+
+PWD=$(pwd)
+
+ln -s $PWD/$2/$TARGET-backend $PWD/$2/$TARGET-docker/backend
+
+cat << EOF
+Next steps:
+
+  cd $TARGET
+  rename-project --composed
+
+EOF

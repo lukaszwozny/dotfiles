@@ -16,14 +16,16 @@ logging.basicConfig(level=logging.DEBUG)
 
 class Changes(Enum):
     DOMAIN = "domain"
+    LOCAL_DOMAIN = "local-domain"
+    CHOOSE_DOMAIN = "choose-domain"
     PORT = "port"
-    SQL_PORT = "sql-port"
     VUE_PORT = "vue-port"
     DJANGO_PORT = "django-port"
     PROJECT_NAME = "project-name"
     PROJECT_NAME_CAPITALIZE = "project-name-capitalize"
     DB_USER = "db-user"
     DB_PASSWORD = "db-password"
+    DB_PORT = "db-port"
     DJANGO_SECRET = "django-secret"
 
 
@@ -79,7 +81,10 @@ class App:
         for config in self.make_config:
             if 'enabled' in config and not config['enabled']:
                 continue
-            if "from" in config and "to" in config:
+
+            if "cmd" in config:
+                os.system(config['cmd'])
+            elif "from" in config and "to" in config:
                 self._copy(config=config)
             elif "file" in config:
                 self._change(config=config)
@@ -152,6 +157,9 @@ def main():
     )
     args = parser.parse_args()
 
+    if not args.composed and not os.path.isfile(filename):
+        raise Exception(f'{filename} not found! Try -c flag.')
+
     value = input(f"Domain ({g_data[Changes.DOMAIN]}): ")
     if value != "":
         g_data[Changes.DOMAIN] = value
@@ -167,9 +175,18 @@ def main():
     g_data[Changes.PROJECT_NAME] = '-'.join(split)
     g_data[Changes.PROJECT_NAME_CAPITALIZE] = g_data[Changes.PROJECT_NAME].replace('-', ' ').capitalize()
 
+    g_data[Changes.LOCAL_DOMAIN] = f'{g_data[Changes.PROJECT_NAME]}.localhost'
+    value = input(f"Local (y/N): ")
+    if value == "" :
+        value = 'n'
+    if value.lower() == 'y':
+        g_data[Changes.CHOOSE_DOMAIN] = g_data[Changes.LOCAL_DOMAIN]
+    else:
+        g_data[Changes.CHOOSE_DOMAIN] = g_data[Changes.DOMAIN]
+    
     port = g_data[Changes.PORT]
     g_data[Changes.VUE_PORT] = f"3{port[1:]}"
-    g_data[Changes.SQL_PORT] = f"5{port[1:]}"
+    g_data[Changes.DB_PORT] = f"5{port[1:]}"
     g_data[Changes.DJANGO_PORT] = f"7{port[1:]}"
     g_data[Changes.DJANGO_SECRET] = secrets.token_urlsafe(50)
 
