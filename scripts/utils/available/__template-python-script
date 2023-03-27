@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+import json
+import re
+import os
+import logging
+import glob
+import shutil
+import argparse
+from enum import Enum
+import secrets
+
+
+
+logging.basicConfig(level=logging.DEBUG)
+
+
+
+filename = "make-config.json"
+
+
+class App:
+    def __init__(self) -> None:
+        pass
+
+    def start(self):
+        pass
+
+
+
+def main():
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument(
+    #     '-n',
+    #     '--name',
+    #     help='Name of components',
+    #     required=True,
+    # )
+    # args = parser.parse_args()
+
+
+    name = ''
+    while name == '':
+        name = input(f"Component name: ")
+        if name != "":
+            break
+        print('Error! Name cannot be blank. Try again.')
+
+
+    app = App()
+    app.start()
+
+
+if __name__ == "__main__":
+    main()

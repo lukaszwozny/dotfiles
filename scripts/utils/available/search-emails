@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+import json
+import re
+import os
+import logging
+import glob
+import shutil
+import argparse
+from enum import Enum
+import secrets
+
+logging.basicConfig(level=logging.DEBUG)
+
+
+class App:
+    EMAIL_REGEX = "[A-Za-z0-9\.-]+@[A-Za-z0-9\.-]+"
+
+    def __init__(self) -> None:
+        self.found = []
+        self.re_pattern = re.compile(self.EMAIL_REGEX)
+
+    def start(self):
+        self._look_dir('.')
+
+        self.found = list(set(self.found))
+        for r in self.found:
+            print(f'  {r}')
+    
+    def _look_dir(self, path):
+        for file in os.listdir(path):
+            if os.path.isdir(file):
+                self._look_dir(os.path.join(path, file))
+            else:
+                self._search_file(os.path.join(path, file))
+    
+    def _search_file(self, filename):
+        # print(f'\n{filename}:')
+        with open(filename, errors='ignore') as f:
+            text = f.read()
+
+            result =self.re_pattern.findall(text)
+            if len(result) == 0:
+                print('  NOT FOUND')
+                return
+
+            # result = list(set(result))
+            SKIP = ['siteground.biz', 'kup-komentarze.pl', 'linuxpl.com', 'mailspamprotection.com']
+            for r in result:
+                f = False
+                for s in SKIP:
+                    if s in r:
+                        f = True
+                        break
+                if not f:
+                    self.found.append(r) 
+
+
+
+
+def main():
+    app = App()
+    app.start()
+
+
+if __name__ == "__main__":
+    main()
+

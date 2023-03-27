@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+import json
+import re
+import os
+import logging
+import glob
+import shutil
+import argparse
+from enum import Enum
+import secrets
+
+
+
+logging.basicConfig(level=logging.DEBUG)
+
+
+
+filename = "make-config.json"
+
+
+class App:
+    def __init__(self, name) -> None:
+        self.name = name
+        
+        self.pascal_case_name = name.replace("-", " ").replace("_", " ").title().replace(" ", "") 
+        self.component_name = f'Blocks{self.pascal_case_name}'
+
+        print(self.pascal_case_name)
+        print(self.component_name)
+
+    def start(self):
+        self._create_component_vue_file()
+        self._add_to_blocks_vue()
+
+    def _create_component_vue_file(self):
+        template_path = 'components/blocks/Template.vue'
+        new_path = f'components/blocks/{self.pascal_case_name}.vue'
+
+        shutil.copy(template_path, new_path)
+
+    def _add_to_blocks_vue(self):
+        blocks_path = 'components/page/Blocks.vue'
+        compiled = re.compile('(var\\scomps\\s\\=\\s\\{[^}]*)') 
+
+        with open(blocks_path) as f:
+            text = f.read()
+
+            changed = compiled.sub(f'\\1  {self.name}: resolveComponent("{self.component_name}"),', text)
+        
+        with open(blocks_path, 'w') as f:
+            f.write(changed)
+
+
+
+
+def main():
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument(
+    #     '-n',
+    #     '--name',
+    #     help='Name of components',
+    #     required=True,
+    # )
+    # args = parser.parse_args()
+
+
+    name = ''
+    while name == '':
+        name = input(f"Component name: ")
+        if name != "":
+            break
+        print('Error! Name cannot be blank. Try again.')
+
+
+    app = App(name)
+    app.start()
+
+
+if __name__ == "__main__":
+    main()

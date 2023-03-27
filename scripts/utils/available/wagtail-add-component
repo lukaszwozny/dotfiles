@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+import json
+import re
+import os
+import logging
+import glob
+import shutil
+import argparse
+from enum import Enum
+import secrets
+
+
+
+logging.basicConfig(level=logging.DEBUG)
+
+
+
+filename = "make-config.json"
+
+
+class App:
+    def __init__(self, name) -> None:
+        self.name = name
+        
+        self.camel_case_name = name.replace("-", "_") 
+        self.pascal_case_name = self.camel_case_name.replace("_", " ").title().replace(" ", "") 
+        self.component_name = f'{self.pascal_case_name}Block'
+
+        print(self.pascal_case_name)
+        print(self.component_name)
+
+    def start(self):
+        # self._add_to_blocks_py()
+        self._add_to_page_model()
+
+    def _add_to_blocks_py(self):
+        blocks_path = 'components/blocks.py'
+        compiled = re.compile('(###\\sEND\\sBASE\\sBLOCKS\\s###)') 
+
+        with open(blocks_path) as f:
+            text = f.read()
+
+            replace_with = f"""class {self.component_name}(blocks.StructBlock): 
+    title = blocks.RichTextBlock(required=False)
+    text = blocks.RichTextBlock(required=False)
+
+
+\\1
+            """
+
+            changed = compiled.sub(replace_with, text)
+        
+        with open(blocks_path, 'w') as f:
+            f.write(changed)
+
+    def _add_to_page_model(self):
+        blocks_path = 'pages/models.py'
+        compiled = re.compile('(###\\sEND\\sBASE\\sBLOCKS\\s###)') 
+        compiled_body = re.compile('(###\\sEND\\sBASE\\sBLOCKS\\sBODY\\s###)') 
+
+        with open(blocks_path) as f:
+            text = f.read()
+
+            replace_with = f"""{self.component_name},
+    \\1"""
+
+            changed = compiled.sub(replace_with, text)
+
+            # BODY part
+            replace_with = f"""("{self.camel_case_name}", {self.component_name}()),
+           \\1"""
+
+            changed = compiled_body.sub(replace_with, changed)
+        
+        with open(blocks_path, 'w') as f:
+            f.write(changed)
+
+
+
+
+def main():
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument(
+    #     '-n',
+    #     '--name',
+    #     help='Name of components',
+    #     required=True,
+    # )
+    # args = parser.parse_args()
+
+
+    name = ''
+    while name == '':
+        name = input(f"Component name: ")
+        if name != "":
+            break
+        print('Error! Name cannot be blank. Try again.')
+
+
+    app = App(name)
+    app.start()
+
+
+if __name__ == "__main__":
+    main()
