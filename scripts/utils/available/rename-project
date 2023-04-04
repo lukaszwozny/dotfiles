@@ -192,7 +192,7 @@ def main():
 
     # DB
     g_data[Changes.DB_USER] = g_data[Changes.PROJECT_NAME]
-    g_data[Changes.DB_PASSWORD] = f'{g_data[Changes.PROJECT_NAME]}-pass'
+    g_data[Changes.DB_PASSWORD] = f'{g_data[Changes.PROJECT_NAME]}-{g_data[Changes.PORT]}'
 
     app = App(
         composed=args.composed,

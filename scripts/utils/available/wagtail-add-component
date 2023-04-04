@@ -30,7 +30,7 @@ class App:
         print(self.component_name)
 
     def start(self):
-        # self._add_to_blocks_py()
+        self._add_to_blocks_py()
         self._add_to_page_model()
 
     def _add_to_blocks_py(self):
@@ -43,6 +43,10 @@ class App:
             replace_with = f"""class {self.component_name}(blocks.StructBlock): 
     title = blocks.RichTextBlock(required=False)
     text = blocks.RichTextBlock(required=False)
+
+    class Meta:
+        icon = "bi-border"
+
 
 
 \\1
