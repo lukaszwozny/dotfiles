@@ -1,0 +1,42 @@
+#!/bin/bash
+
+NAME="leknaserver-current"
+PROJECTS_DIR="$HOME/Projects/Combined"
+
+PARENT_DIR="$PROJECTS_DIR/$NAME"
+
+if [ "$(command -v wmctrl)" = "" ]
+then
+	echo 'Command wmctrl not found!'
+	echo '    sudo apt install wmctrl'
+	exit
+fi
+
+
+if [ ! -d $PARENT_DIR ]
+then
+	echo "No $PARENT_DIR exists!"
+	exit
+fi
+
+TYPES=""
+TYPES+="backend "
+TYPES+="frontend "
+TYPES+="docker "
+# TYPES+="flutter "
+
+S_N=2
+for TYPE in $TYPES
+do
+	echo $PARENT_DIR/$NAME-$TYPE
+	wmctrl -s "$S_N"
+	code "$PARENT_DIR/$NAME-$TYPE"
+
+	((S_N++))
+	sleep 2
+done
+
+wmctrl -s 1
+
+exit 
+

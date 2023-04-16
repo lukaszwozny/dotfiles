@@ -121,8 +121,11 @@ class App:
                 regex = change["regex"]
                 # print(regex)
 
-                replace_key = change["replaceKey"]
-                replace_with = g_data[Changes(replace_key)]
+                if 'replaceWith' in change:
+                    replace_with = change["replaceWith"]
+                else:
+                    replace_key = change["replaceKey"]
+                    replace_with = g_data[Changes(replace_key)]
 
                 logging.debug(f"  {regex}")
 
@@ -148,6 +151,7 @@ class App:
 
 
 def main():
+    global filename
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '-c',
@@ -155,44 +159,59 @@ def main():
         help='Renaming all projects in current dir.',
         action='store_true',
     )
+    parser.add_argument(
+        '-f',
+        '--file',
+        help='Config filename input',
+    )
+    parser.add_argument(
+        '-q',
+        '--quick',
+        help='Quick renaming, without any more info.',
+        action='store_true',
+    )
     args = parser.parse_args()
+
+    if args.file:
+        filename = args.file
 
     if not args.composed and not os.path.isfile(filename):
         raise Exception(f'{filename} not found! Try -c flag.')
-
-    value = input(f"Domain ({g_data[Changes.DOMAIN]}): ")
-    if value != "":
-        g_data[Changes.DOMAIN] = value
-    value = input(f"Port ({g_data[Changes.PORT]}): ")
-    if value != "":
-        g_data[Changes.PORT] = value
-
-    abs_path = os.getcwd()
-    dir_name = abs_path.split("/")[-1]
-    split = dir_name.split('-')
-    if len(split) > 1:
-        split = split[:-1]
-    g_data[Changes.PROJECT_NAME] = '-'.join(split)
-    g_data[Changes.PROJECT_NAME_CAPITALIZE] = g_data[Changes.PROJECT_NAME].replace('-', ' ').capitalize()
-
-    g_data[Changes.LOCAL_DOMAIN] = f'{g_data[Changes.PROJECT_NAME]}.localhost'
-    value = input(f"Local (y/N): ")
-    if value == "" :
-        value = 'n'
-    if value.lower() == 'y':
-        g_data[Changes.CHOOSE_DOMAIN] = g_data[Changes.LOCAL_DOMAIN]
-    else:
-        g_data[Changes.CHOOSE_DOMAIN] = g_data[Changes.DOMAIN]
     
-    port = g_data[Changes.PORT]
-    g_data[Changes.VUE_PORT] = f"3{port[1:]}"
-    g_data[Changes.DB_PORT] = f"5{port[1:]}"
-    g_data[Changes.DJANGO_PORT] = f"7{port[1:]}"
-    g_data[Changes.DJANGO_SECRET] = secrets.token_urlsafe(50)
+    if not args.quick:
+        value = input(f"Domain ({g_data[Changes.DOMAIN]}): ")
+        if value != "":
+            g_data[Changes.DOMAIN] = value
+        value = input(f"Port ({g_data[Changes.PORT]}): ")
+        if value != "":
+            g_data[Changes.PORT] = value
 
-    # DB
-    g_data[Changes.DB_USER] = g_data[Changes.PROJECT_NAME]
-    g_data[Changes.DB_PASSWORD] = f'{g_data[Changes.PROJECT_NAME]}-{g_data[Changes.PORT]}'
+        abs_path = os.getcwd()
+        dir_name = abs_path.split("/")[-1]
+        split = dir_name.split('-')
+        if len(split) > 1:
+            split = split[:-1]
+        g_data[Changes.PROJECT_NAME] = '-'.join(split)
+        g_data[Changes.PROJECT_NAME_CAPITALIZE] = g_data[Changes.PROJECT_NAME].replace('-', ' ').capitalize()
+
+        g_data[Changes.LOCAL_DOMAIN] = f'{g_data[Changes.PROJECT_NAME]}.localhost'
+        value = input(f"Local (y/N): ")
+        if value == "" :
+            value = 'n'
+        if value.lower() == 'y':
+            g_data[Changes.CHOOSE_DOMAIN] = g_data[Changes.LOCAL_DOMAIN]
+        else:
+            g_data[Changes.CHOOSE_DOMAIN] = g_data[Changes.DOMAIN]
+    
+        port = g_data[Changes.PORT]
+        g_data[Changes.VUE_PORT] = f"3{port[1:]}"
+        g_data[Changes.DB_PORT] = f"5{port[1:]}"
+        g_data[Changes.DJANGO_PORT] = f"7{port[1:]}"
+        g_data[Changes.DJANGO_SECRET] = secrets.token_urlsafe(50)
+
+        # DB
+        g_data[Changes.DB_USER] = g_data[Changes.PROJECT_NAME]
+        g_data[Changes.DB_PASSWORD] = f'{g_data[Changes.PROJECT_NAME]}-{g_data[Changes.PORT]}'
 
     app = App(
         composed=args.composed,
