@@ -1,0 +1,71 @@
+#!/bin/bash
+
+NAME="sinproject"
+PROJECTS_DIR="$HOME/Projects/Python/WEB_CRAWLERS/CEMWebInspiration"
+
+SCRIPT_NAME="1_1_get_questions.py"
+
+SESSIONS=(
+        # "wiosna 2023" <-- DONE
+        # "jesień 2017" <-- DONE
+        # "wiosna 2017" <-- DONE
+        # "jesień 2016" <-- DONE
+        # "wiosna 2016" <-- DONE
+        # "jesień 2015" <-- DONE
+        # "wiosna 2015" <-- DONE
+        # "jesień 2014" <-- DONE
+        # "wiosna 2014" <-- DONE
+        # "jesień 2013" <-- DONE
+        # "wiosna 2013" <-- DONE
+        # "jesień 2012" <-- DONE
+        # "wiosna 2012" <-- DONE
+        # "jesień 2011" <-- DONE
+        # "wiosna 2011" <-- DONE
+        # "jesień 2010" <-- DONE
+        # "wiosna 2010" <-- DONE
+        # "jesień 2009" <-- DONE
+        # "wiosna 2009" <-- DONE
+        # "jesień 2008" <-- DONE
+        # "wiosna 2008" <-- DONE
+        # "jesień 2007" <-- DONE
+        # "wiosna 2007" <-- DONE
+        "jesień 2006"
+        # "wiosna 2006" <-- DONE
+        # "jesień 2005" <-- DONE
+        # "wiosna 2005" <-- DONE
+        # "jesień 2004" <-- DONE
+        # "wiosna 2004" <-- DONE
+        "jesień 2003"
+        # "wiosna 2003" <-- DONE
+)
+
+MAX_COPIES=8
+x=0
+S_N=8
+while [ $x -lt $MAX_COPIES ]
+do
+	echo $x
+	echo ${SESSIONS[$x]}
+
+	SN=`wmctrl -d | wc -l`
+	SN=$((SN - 1))
+	wmctrl -s $SN
+
+	# cmd="venv/bin/python $SCRIPT_NAME -s ${SESSIONS[$x]}"
+	# echo $cmd
+
+	gnome-terminal \
+		--working-directory=$PROJECTS_DIR \
+		-- bash -c "
+			venv/bin/python $SCRIPT_NAME -s '${SESSIONS[$x]}'
+			exec bash -i"
+
+	((x++))
+	((S_N++))
+	sleep 4
+done
+
+wmctrl -s 2
+
+exit 
+
