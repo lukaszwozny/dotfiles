@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+        echo "Argument 'name' is requred. ex. workcomposed proxcasino"
+	echo "Exit with code 1"
+        exit
+fi
+
+if [ "$(command -v wmctrl)" = "" ]
+then
+	echo 'Command wmctrl not found!'
+	echo '    sudo apt install wmctrl'
+	echo "Exit with code 1"
+	exit
+fi
+
+NAME=$1
+PROJECTS_DIR="$PROJECTS_HOME/Combined"
+
+PARENT_DIR="$PROJECTS_DIR/$NAME"
+if [ ! -d $PARENT_DIR ]
+then
+	echo "No $PARENT_DIR exists!"
+	echo "Exit with code 1"
+	exit 1
+fi
+
+TYPES=""
+TYPES+="backend "
+TYPES+="frontend "
+TYPES+="docker "
+
+for TYPE in $TYPES
+do
+        DIR_NAME=$NAME-$TYPE
+        TYPE_DIR=$PARENT_DIR/$DIR_NAME
+        if [ ! -d $TYPE_DIR ]
+        then
+                echo "WARNING! No $DIR_NAME exists!"
+                continue
+        fi
+
+        SCREEN_N=`wmctrl -d | wc -l`
+	SCREEN_N=$((SCREEN_N - 1))
+	# echo $SCREEN_N  
+	wmctrl -s $SCREEN_N
+	code $TYPE_DIR
+	sleep 3
+done

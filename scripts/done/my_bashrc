@@ -12,3 +12,5 @@ export PATH="$PATH:$ANDROID_SDK/platform-tools"
 export PATH="$PATH:$ANDROID_SDK/emulator"
 export PATH="$PATH:$ANDROID_SDK/tools"
 
+export PROJECTS_HOME="/media/pny/Projects"
+
