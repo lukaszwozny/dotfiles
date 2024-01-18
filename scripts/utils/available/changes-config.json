@@ -1,0 +1,37 @@
+[
+  {
+    "type": "replace",
+    "file": ".env.dev",
+    "items": [
+      {
+        "regex": "(SQL_USER=).*",
+        "replaceKey": "db-user"
+      },
+      {
+        "regex": "(SQL_PASSWORD=).*",
+        "replaceKey": "db-password"
+      },
+      {
+        "regex": "(SQL_PORT=).*",
+        "replaceKey": "db-port"
+      },
+      {
+        "regex": "(DOMAIN=).*",
+        "replaceKey": "choose-domain"
+      }
+    ]
+  },
+  {
+    "file": "DjangoProject/settings.py",
+    "changes": [
+      {
+        "regex": "(WAGTAIL_SITE_NAME\\s=\\s\")[A-Za-z-]+(\")",
+        "replaceKey": "project-name-capitalize"
+      },
+      {
+        "regex": "(\\*\\.)[A-Za-z\\.]+(\",\\s\\s#\\sDOMAIN)",
+        "replaceKey": "domain"
+      }
+    ]
+  }
+]

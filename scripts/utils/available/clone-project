@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+import json
+import re
+import os
+import logging
+import glob
+import shutil
+import argparse
+from enum import Enum
+import secrets
+import sys
+
+
+
+logging.basicConfig(level=logging.DEBUG)
+
+
+def main():
+    args = sys.argv
+
+    print(args)
+    if len(args) < 3:
+        print('  clone-project <from> <to>')
+        print('Exit with code 1')
+        return
+
+    dir_from =  args[1]
+    dir_to =  args[2]
+
+    print(f'{dir_from} => {dir_to}')
+
+
+if __name__ == "__main__":
+    main()

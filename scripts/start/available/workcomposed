@@ -48,3 +48,5 @@ do
 	code $TYPE_DIR
 	sleep 3
 done
+
+wmctrl -s 2

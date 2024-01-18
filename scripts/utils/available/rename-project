@@ -213,10 +213,12 @@ def main():
         g_data[Changes.DB_USER] = g_data[Changes.PROJECT_NAME]
         g_data[Changes.DB_PASSWORD] = f'{g_data[Changes.PROJECT_NAME]}-{g_data[Changes.PORT]}'
 
+    # print(json.dumps(g_data, indent=2))
+
     app = App(
         composed=args.composed,
     )
-    app.start()
+    # app.start()
 
 
 if __name__ == "__main__":
