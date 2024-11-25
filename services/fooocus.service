@@ -1,0 +1,13 @@
+[Unit]
+Description=Fooocus AI Script Service
+After=network.target
+
+[Service]
+User=lukas
+Group=lukas
+WorkingDirectory=/home/lukas/data/Projects/AI/Fooocus
+ExecStart=/home/lukas/data/Projects/AI/Fooocus/venv/bin/python entry_with_update.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

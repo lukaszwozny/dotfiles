@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+import os
+
+DST = os.path.expanduser("~")
+FILE = ".vimrc"
+DSTFILE = os.path.join(DST, FILE)
+
+if os.path.isfile(DSTFILE):
+    os.remove(DSTFILE)
+
+TRG = os.path.join(os.getcwd(), FILE)
+
+#print(f"ln -s {TRG} {DST}")
+os.symlink(TRG, DSTFILE)

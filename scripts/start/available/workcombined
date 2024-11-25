@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# export PROJECTS_HOME=~/data/Projects
+
 if [ $# -eq 0 ]
 then
-        echo "Argument 'name' is requred. ex. workcomposed proxcasino"
+        echo "Argument 'name' is requred. ex. workcombined proxcasino"
 	echo "Exit with code 1"
         exit
 fi

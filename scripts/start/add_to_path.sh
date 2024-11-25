@@ -1,4 +1,11 @@
 # /usr/local/bin
+
+if [ "$1" = "" ]
+then
+	echo "Usage: $0 <script_name>"
+	exit
+fi
+
 DST="$HOME/.local/bin"
 TRG="$(pwd)"
 
